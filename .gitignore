@@ -25,9 +25,6 @@ checkpoints/
 # Weights & Biases
 wandb/
 
-# Reports (binary artifacts)
-reports/*.pdf
-reports/figures/
 
 # LaTeX build artifacts
 reports/*.aux
