@@ -1,0 +1,60 @@
+# Конфиг обучения RepVGG на CIFAR-10
+# Все гиперпараметры собраны тут, чтобы не лазить по коду
+
+# Датасет 
+data:
+  dataset: "cifar10"         # cifar10
+  data_dir: "./data"
+  num_workers: 4
+  pin_memory: true
+
+# Модель
+model:
+  name: "repvgg_a0"          # repvgg_a0, resnet20, vgg16_cifar
+  num_classes: 10 
+  # Для ablation-экспериментов
+  use_identity: true
+  use_1x1: true
+
+# Обучение
+training:
+  epochs: 200
+  batch_size: 128
+  optimizer: "sgd"
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 1.0e-4
+  scheduler: "cosine"        # cosine или step
+  warmup_epochs: 5
+  label_smoothing: 0.0
+
+# Аугментации
+augmentation:
+  random_crop: true
+  crop_padding: 4
+  horizontal_flip: true
+  cutout: false
+  cutout_length: 16
+  autoaugment: false         # RandAugment
+  randaugment_n: 2
+  randaugment_m: 14
+
+# Mixed precision
+amp:
+  enabled: true
+
+# Воспроизводимость
+seed: 42
+
+# WandB 
+wandb:
+  enabled: true
+  project: "RepVGG"
+  entity: "vefulls-"
+  tags: []
+
+# Сохранение 
+checkpoint:
+  save_dir: "./checkpoints"
+  save_best: true
+  save_last: true
