@@ -1,6 +1,6 @@
 # RepVGG Reproduction
 
-Воспроизведение статьи "RepVGG: Making VGG-style ConvNets Great Again" (CVPR 2021) на CIFAR-10.
+Воспроизведение статьи [RepVGG: Making VGG-style ConvNets Great Again](https://arxiv.org/abs/2101.03697) (CVPR 2021) на CIFAR-10.
 
 ## Установка
 
